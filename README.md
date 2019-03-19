@@ -9,3 +9,4 @@
 6. Laser don´t go thru walls
 7. Player is out of bounds
 8. Player reached the door
+9. Door is only visible when all treasures found.
