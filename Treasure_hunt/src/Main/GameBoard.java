@@ -41,7 +41,7 @@ public class GameBoard {
 		this.gameBoard = gameBoards;
 	}
 
-	public int getPosition(int x, int y) {
+	public int getValueOfPosition(int x, int y) {
 		int value = gameBoard[x][y];
 		return value;
 	}
