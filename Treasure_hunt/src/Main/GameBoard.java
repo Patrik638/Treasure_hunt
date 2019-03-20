@@ -37,7 +37,12 @@ public class GameBoard {
 		return gameBoard;
 	}
 	
-	public void setGameBoard(int[][] gameBoard) {
-		this.gameBoard = gameBoard;
+	public void setGameBoard(int[][] gameBoards) {
+		this.gameBoard = gameBoards;
+	}
+
+	public int getPosition(int x, int y) {
+		int value = gameBoard[x][y];
+		return value;
 	}
 }
