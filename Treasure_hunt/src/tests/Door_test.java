@@ -1,10 +1,11 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import Main.GameBoard;
+import Main.Door;
 
 public class Door_test {
 	
@@ -15,15 +16,14 @@ public class Door_test {
 	
 	@Test
 	public void doorDisabled() {
-		
+		Door door = new Door();
+		door.disableDoor();
+		assertFalse(door.isDoorEnabled(8, 21));
 	}
 	
 	@Test
 	public void doorEnabled() {
-		GameBoard gameBoard = new GameBoard();
-		int x = 8;
-		int y = 21;
-		int doorPosition = gameBoard.getValueOfPosition(x, y);
-		assertEquals(4, doorPosition);
+		Door door = new Door();
+		assertTrue(door.isDoorEnabled(8, 21));
 	}
 }
