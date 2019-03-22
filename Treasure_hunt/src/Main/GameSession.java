@@ -32,7 +32,7 @@ public class GameSession extends JFrame implements Runnable {
 		newThread = new Thread(this);
 		newThread.start();
 	}
-		
+
 	public void run() {
 		GameBoard gameBoard = new GameBoard();
 		boolean gameOver = false;
@@ -40,12 +40,14 @@ public class GameSession extends JFrame implements Runnable {
 		{	
 			text.setText("");
 			text = gameBoard.print(text);
+			//text.repaint();
 			try {
-				Thread.sleep(50);
-				text = new JTextArea();
+				Thread.sleep(300);
 			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 		}
 	}
 	
