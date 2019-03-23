@@ -10,7 +10,11 @@ import javax.swing.JTextArea;
 public class GameSession extends JFrame implements Runnable {
 	private JTextArea text;
 	private Thread newThread;
-	  
+
+	public GameBoard gameBoard = new GameBoard();
+	public boolean gameOver = false;
+
+
 	public GameSession() {
 		JFrame frame = new JFrame("Treasure hunt");
 		frame.setLayout(null);
@@ -34,8 +38,6 @@ public class GameSession extends JFrame implements Runnable {
 	}
 
 	public void run() {
-		GameBoard gameBoard = new GameBoard();
-		boolean gameOver = false;
 		while(!gameOver)
 		{	
 			text.setText("");

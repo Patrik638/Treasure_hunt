@@ -1,17 +1,33 @@
 package tests;
 
+import Main.GameSession;
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class Player_test {
-	
+
+	GameSession testGameSession = new GameSession();
+
+
 	@Test
 	public void correctPositionOfPlayer() {
-		
+		int actualInt;
+
+		actualInt=testGameSession.gameBoard.getValueOfPosition(2,1);
+		assertEquals("Expecting 2 to be written on players initial position ",2,actualInt);
 	}
 	
 	@Test
-	public void onlyOnePlayerAtBoard() {
-		
+	public void OnePlayerShouldExistAtBoard() {
+		int playersFound = 0;
+		for (int row = 0; row< testGameSession.gameBoard.getNumberOfRows(); row++){
+			for(int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++){
+				if (testGameSession.gameBoard.getValueOfPosition(row,col)==2){
+					playersFound++;
+				}
+			}
+		}
+		assertEquals("Expecting one player to exist",1,playersFound);
 	}
 	
 	@Test

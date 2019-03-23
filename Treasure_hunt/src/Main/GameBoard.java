@@ -11,7 +11,8 @@ public class GameBoard {
 		5=laser
 	 * 
 	 */
-	private int[][] gameBoard = {{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+	private int[][] gameBoard = {
+			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 			{1,0,0,0,1,0,0,0,0,0,0,3,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 			{1,2,0,0,1,0,0,0,0,0,1,1,1,0,0,5,0,0,0,1,0,0,0,0,0,0,0,0,0,1},
 			{1,0,0,0,1,3,0,0,0,0,0,0,1,0,0,5,0,0,0,1,0,0,0,0,0,0,0,0,0,1},
@@ -46,6 +47,17 @@ public class GameBoard {
 	public int getValueOfPosition(int x, int y) {
 		int value = gameBoard[x][y];
 		return value;
+	}
+
+	public int getNumberOfRows(){
+		return gameBoard.length;
+	}
+	public int getNumberOfCols(){
+		return gameBoard[0].length;
+	}
+
+	public void setValueOfPosition(int x, int y, int intToSet){
+		gameBoard[x][y]=intToSet;
 	}
 
 	public JTextArea print(JTextArea text) {
