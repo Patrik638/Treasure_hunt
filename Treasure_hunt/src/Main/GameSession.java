@@ -8,15 +8,14 @@ import javax.swing.JTextArea;
 
 @SuppressWarnings("serial")
 public class GameSession extends JFrame implements Runnable {
-	private JTextArea text;
+	
 	private Thread newThread;
-
 	public GameBoard gameBoard = new GameBoard();
-	public boolean gameOver = false;
-
+	boolean gameOver = false;
+	public JFrame frame = new JFrame("Treasure hunt");
+	public JTextArea text;
 
 	public GameSession() {
-		JFrame frame = new JFrame("Treasure hunt");
 		frame.setLayout(null);
 		frame.setSize(460,620);
 		frame.setLocation(100,50);
@@ -39,17 +38,14 @@ public class GameSession extends JFrame implements Runnable {
 
 	public void run() {
 		while(!gameOver)
-		{	
+		{
 			text.setText("");
 			text = gameBoard.print(text);
-			//text.repaint();
 			try {
 				Thread.sleep(300);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
 	}
 	

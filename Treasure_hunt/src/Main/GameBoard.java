@@ -45,8 +45,7 @@ public class GameBoard {
 	}
 
 	public int getValueOfPosition(int x, int y) {
-		int value = gameBoard[x][y];
-		return value;
+		return gameBoard[x][y];
 	}
 
 	public int getNumberOfRows(){

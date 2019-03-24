@@ -12,9 +12,4 @@ public class Door {
 		}
 		return false;
 	}
-
-	public void disableDoor() {
-		
-		
-	}
 }
