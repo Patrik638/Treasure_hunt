@@ -32,7 +32,7 @@ public class Player_test {
 	
 	@Test
 	public void playerMoveLeftDirection() {
-		
+		//
 	}
 	
 	@Test

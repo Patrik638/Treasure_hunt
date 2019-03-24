@@ -1,13 +1,15 @@
 package Main;
 
 import java.awt.Font;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
 @SuppressWarnings("serial")
-public class GameSession extends JFrame implements Runnable {
+public class GameSession extends JFrame implements Runnable, KeyListener {
 	
 	private Thread newThread;
 	public GameBoard gameBoard = new GameBoard();
@@ -17,7 +19,7 @@ public class GameSession extends JFrame implements Runnable {
 
 	public GameSession() {
 		frame.setLayout(null);
-		frame.setSize(460,620);
+		frame.setSize(600,620);
 		frame.setLocation(100,50);
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
@@ -25,8 +27,11 @@ public class GameSession extends JFrame implements Runnable {
 				System.exit(0);
 			}
 		});
+
 		text = new JTextArea();
-		text.setBounds(20, 20, 400, 550);
+		text.addKeyListener(this);
+
+		text.setBounds(20, 20, 600, 550);
 		text.setFont(new Font("Arial", Font.PLAIN, 24));
 		frame.add(text);
 		frame.setVisible(true);
@@ -34,6 +39,19 @@ public class GameSession extends JFrame implements Runnable {
 		//Skapar en ny tråd
 		newThread = new Thread(this);
 		newThread.start();
+	}
+
+	public void keyTyped(KeyEvent e) {
+		// Testing keytyped
+		gameBoard.setValueOfPosition(1,3,9);
+	}
+
+	public void keyReleased(KeyEvent e) {
+
+	}
+
+	public void keyPressed(KeyEvent e) {
+
 	}
 
 	public void run() {

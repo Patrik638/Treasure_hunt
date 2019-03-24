@@ -44,8 +44,8 @@ public class GameBoard {
 		this.gameBoard = gameBoard;
 	}
 
-	public int getValueOfPosition(int x, int y) {
-		return gameBoard[x][y];
+	public int getValueOfPosition(int row, int col) {
+		return gameBoard[row][col];
 	}
 
 	public int getNumberOfRows(){
@@ -55,8 +55,8 @@ public class GameBoard {
 		return gameBoard[0].length;
 	}
 
-	public void setValueOfPosition(int x, int y, int intToSet){
-		gameBoard[x][y]=intToSet;
+	public void setValueOfPosition(int row, int col, int intToSet){
+		gameBoard[row][col]=intToSet;
 	}
 
 	public JTextArea print(JTextArea text) {
