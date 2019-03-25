@@ -9,8 +9,8 @@ public class Player {
         col = 1;
     }
 
-    public boolean movePlayerLeft(int targetPositionContains) {
-        if (targetPositionContains == 1) {
+    public boolean movePlayerLeft(int potentialTargetLocationInt) {
+        if (potentialTargetLocationInt == 1) {
             //Player is not allowed to to navigate into a wall
             return false;
         } else {

@@ -7,7 +7,7 @@ import javax.swing.JTextArea;
 
 @SuppressWarnings("serial")
 public class GameSession extends JFrame implements Runnable, KeyListener {
-	
+
 	private Thread newThread;
 	public GameBoard gameBoard = new GameBoard();
 	public boolean gameOver = false;
@@ -32,22 +32,34 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 		text.setFont(new Font("Arial", Font.PLAIN, 24));
 		frame.add(text);
 		frame.setVisible(true);
-		
+
 		//Skapar en ny tråd
 		newThread = new Thread(this);
 		newThread.start();
 	}
 
-	public void keyTyped(KeyEvent e) {
-		// Testing keytyped
-		gameBoard.setValueOfPosition(1,3,9);
-	}
+    public void keyTyped(KeyEvent e) {
+        char detectedChar = e.getKeyChar();
+        detectedChar = Character.toLowerCase(detectedChar);
+        switch (detectedChar) {
+            case 'w':
+                break;
+            case 'a':
+                gameBoard.playerWantToMoveLeft();
+            case 's':
+                break;
+            case 'd':
+                break;
+            default:
+                // Do nothing
+        }
+    }
 
 	public void keyReleased(KeyEvent e) {
 
 	}
 
-	public void keyPressed(KeyEvent e) {
+    public void keyPressed(KeyEvent e) {
 
 	}
 
@@ -63,7 +75,7 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 			}
 		}
 	}
-	
+
 	public static void main(String[] args) throws InterruptedException {
 		new GameSession();
 	}

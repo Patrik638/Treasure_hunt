@@ -11,6 +11,9 @@ public class GameBoard {
 		5=laser
 	 * 
 	 */
+	public Player player = new Player();
+	int playerRow;
+	int playerCol;
 	private int[][] gameBoard = {
 			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 			{1,0,0,0,1,0,0,0,0,0,0,3,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -35,7 +38,12 @@ public class GameBoard {
 	public GameBoard() {
 		
 	}
-	
+
+
+	public void updatePlayerPosition(){
+	    playerRow=player.getPlayerRowNumber();
+	    playerCol=player.getPlayerColNumber();
+    }
 	public int[][] getGameBoard() {
 		return gameBoard;
 	}
@@ -67,5 +75,33 @@ public class GameBoard {
 			text.append("\n");
 		}
 		return text;
+	}
+
+	public int getIntLeftFromPlayer(){
+	    updatePlayerPosition();
+		return getValueOfPosition(playerRow,playerCol-1);
+	}
+
+	public int getIntRightFromPlayer(){
+        updatePlayerPosition();
+		return getValueOfPosition(playerRow,playerCol+1);
+	}
+
+	public int getIntUpFromPlayer(){
+        updatePlayerPosition();
+		return getValueOfPosition(playerRow-1,playerCol);
+	}
+	public int getIntDownFromPlayer(){
+	    updatePlayerPosition();
+		return getValueOfPosition(playerRow+1,playerCol);
+	}
+
+	public void playerWantToMoveLeft() {
+		if (player.movePlayerLeft(getIntLeftFromPlayer())){
+            setValueOfPosition(playerRow,playerCol-1,2);
+            //player moved. Setting previous location to 0
+            setValueOfPosition(playerRow,playerCol,0);
+        }
+
 	}
 }
