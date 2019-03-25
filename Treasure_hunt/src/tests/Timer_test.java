@@ -1,5 +1,6 @@
 package tests;
 
+import java.text.ParseException;
 import org.junit.Test;
 
 public class Timer_test {
@@ -15,8 +16,8 @@ public class Timer_test {
 	}
 	
 	@Test
-	public void timeInitValue() {
-		
+	public void timeInitValue() throws ParseException {
+
 	}
 	
 	@Test
