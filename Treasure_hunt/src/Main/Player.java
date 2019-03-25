@@ -1,13 +1,33 @@
 package Main;
 
-import javax.xml.xpath.XPath;
-
 public class Player {
-    int Xpos;
-    int YPos;
+    int row;
+    int col;
 
-    public Player(){
-        Xpos=1;
-        YPos=2;
+    public Player() {
+        row = 2;
+        col = 1;
+    }
+
+    public boolean movePlayerLeft(int targetPositionContains) {
+        if (targetPositionContains == 1) {
+            //Player is not allowed to to navigate into a wall
+            return false;
+        } else {
+            col--;
+            return true;
+        }
+    }
+
+    public int getPlayerColNumber() {
+        return col;
+    }
+
+    public int getPlayerRowNumber() {
+        return row;
+    }
+    public void setPlayerPosition(int row, int col){
+        this.row=row;
+        this.col=col;
     }
 }

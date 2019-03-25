@@ -1,10 +1,7 @@
 package Main;
 
 import java.awt.Font;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
@@ -13,7 +10,7 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 	
 	private Thread newThread;
 	public GameBoard gameBoard = new GameBoard();
-	boolean gameOver = false;
+	public boolean gameOver = false;
 	public JFrame frame = new JFrame("Treasure hunt");
 	public JTextArea text;
 
