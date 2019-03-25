@@ -13,7 +13,6 @@ import Main.Laser;
 
 public class Laser_test {
 
-	
 	GameSession testGameSession = new GameSession();
 //	Timer timer = new Timer();
 
@@ -27,11 +26,16 @@ public class Laser_test {
 
 //	}
 
+	//Checking laser from row = 4 to column = (7 - 11)
 	@Test
 	public void laser1Enabled() {
 
 		Laser laser = new Laser();
-		assertTrue(laser.isLaserEnabled(4, 7));
+		
+		int row = 4;
+		for (int col = 7; col < 12; col++) {
+			assertTrue(laser.isLaserEnabled(row, col));
+		}
 
 	}
 
