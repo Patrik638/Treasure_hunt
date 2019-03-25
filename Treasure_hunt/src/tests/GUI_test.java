@@ -1,7 +1,7 @@
 package tests;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import Main.GameSession;

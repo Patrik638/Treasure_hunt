@@ -1,6 +1,7 @@
 package tests;
 
 import Main.GameSession;
+import Main.Player;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
@@ -32,7 +33,7 @@ public class Player_test {
 	
 	@Test
 	public void playerMoveLeftDirection() {
-		
+		//
 	}
 	
 	@Test
@@ -52,7 +53,13 @@ public class Player_test {
 	
 	@Test
 	public void playerMoveLeftDirection_intoWall() {
-		
+		Player player=new Player();
+				// Verifying ieft position of player is a wall
+        int potentialTargetPositionContains=testGameSession.gameBoard.getValueOfPosition(player.getPlayerRowNumber(),player.getPlayerColNumber()-1);
+
+		assertEquals("Position to the left of player is a wall (1)",1,testGameSession.gameBoard.getValueOfPosition(player.getPlayerRowNumber(),player.getPlayerColNumber()-1));
+		assertEquals("Verifying player is not allowed to move to the left",false,player.movePlayerLeft(potentialTargetPositionContains));
+		assertEquals("Player should remain on initial position",2,testGameSession.gameBoard.getValueOfPosition(player.getPlayerRowNumber(),player.getPlayerColNumber()));
 	}
 	
 	@Test
