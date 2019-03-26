@@ -30,6 +30,27 @@ public class Player {
     }
 
 
+    public boolean movePlayerUp(int potentialTargetLocationInt) {
+        if (potentialTargetLocationInt == 1) {
+            //Player is not allowed to to navigate into a wall
+            return false;
+        } else {
+            row--;
+            return true;
+        }
+    }
+
+    public boolean movePlayerDown(int potentialTargetLocationInt) {
+        if (potentialTargetLocationInt == 1) {
+            //Player is not allowed to to navigate into a wall
+            return false;
+        } else {
+            row++;
+            return true;
+        }
+    }
+
+
     public int getPlayerColNumber() {
         return col;
     }
@@ -37,6 +58,7 @@ public class Player {
     public int getPlayerRowNumber() {
         return row;
     }
+
     public void setPlayerPosition(int row, int col){
         this.row=row;
         this.col=col;

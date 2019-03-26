@@ -43,12 +43,14 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
         detectedChar = Character.toLowerCase(detectedChar);
         switch (detectedChar) {
             case 'w':
+				gameBoard.playerWantToMoveUp();
                 break;
             case 'a':
                 gameBoard.playerWantToMoveLeft();
                 break;
             case 's':
-
+				gameBoard.playerWantToMoveDown();
+				break;
             case 'd':
 				gameBoard.playerWantToMoveRight();
                 break;

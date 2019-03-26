@@ -120,32 +120,52 @@ public class Player_test {
 	}
 	
 	@Test
-	public void playerMoveUpDirection() {
-		assertEquals(false,true);
+	public void playerMoveUpDirection_intoOpenSpace() {
+		testGameSession.gameBoard.setPlayerPosition(2,1);
+		assertEquals("Position above player is open space (0)",0,intAbovePlayer());
+		assertEquals("Verifying player is allowed to move up",true,testGameSession.gameBoard.playerWantToMoveUp());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
 	}
 	
 	@Test
 	public void playerMoveUpDirection_intoLaser() {
-		assertEquals(false,true);
+		testGameSession.gameBoard.setPlayerPosition(5,10);
+		assertEquals("Position above player is Laser (5)",5,intAbovePlayer());
+		assertEquals("Verifying player is allowed to move up",true,testGameSession.gameBoard.playerWantToMoveUp());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
 	}
 	
 	@Test
 	public void playerMoveUpDirection_intoTreasure() {
-		assertEquals(false,true);
+		testGameSession.gameBoard.setPlayerPosition(5,17);
+		assertEquals("Position above player is a treasure (3)",3,intAbovePlayer());
+		assertEquals("Verifying player is allowed to move up",true,testGameSession.gameBoard.playerWantToMoveUp());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
 	}
 	
 	@Test
 	public void playerMoveUpDirection_intoDoor() {
-		assertEquals(false,true);
+		// First setting a door
+		testGameSession.gameBoard.setValueOfPosition(0,10,4);
+		//setting playerlocation to right of the door
+		testGameSession.gameBoard.setPlayerPosition(1,10);
+
+		assertEquals("Position above player is a door (4)",4,intAbovePlayer());
+		assertEquals("Verifying player is allowed to move up",true,testGameSession.gameBoard.playerWantToMoveUp());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+
 	}
 	
 	@Test
 	public void playerMoveUpDirection_intoWall() {
-		assertEquals(false,true);
+		testGameSession.gameBoard.setPlayerPosition(1,1);
+		assertEquals("Position above player is a wall (1)",1,intAbovePlayer());
+		assertEquals("Verifying player is not allowed to move up",false,testGameSession.gameBoard.playerWantToMoveUp());
+		assertEquals("Player should display on same position",2,charAtExpectedPlayerLocation());
 	}
 	
 	@Test
-	public void playerMoveDownDirection() {
+	public void playerMoveDownDirection_intoOpenSpace() {
 		assertEquals(false,true);
 	}
 	
@@ -178,6 +198,12 @@ public class Player_test {
 	private int intRightOfPlayer(){
 		int row=testGameSession.gameBoard.player.getPlayerRowNumber();
 		int col=testGameSession.gameBoard.player.getPlayerColNumber()+1;
+		return testGameSession.gameBoard.getValueOfPosition(row,col);
+	}
+
+	private int intAbovePlayer(){
+		int row=testGameSession.gameBoard.player.getPlayerRowNumber()-1;
+		int col=testGameSession.gameBoard.player.getPlayerColNumber();
 		return testGameSession.gameBoard.getValueOfPosition(row,col);
 	}
 

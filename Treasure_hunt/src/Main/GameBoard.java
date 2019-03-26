@@ -118,6 +118,29 @@ public class GameBoard {
 		return false;
 	}
 
+    public boolean playerWantToMoveUp() {
+        if (player.movePlayerUp(getIntUpFromPlayer())){
+            updatePlayerPosition();
+            setValueOfPosition(playerRow,playerCol,2);
+            //player moved. Setting previous location to 0
+            setValueOfPosition(playerRow+1,playerCol,0);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean playerWantToMoveDown() {
+        if (player.movePlayerDown(getIntDownFromPlayer())){
+            updatePlayerPosition();
+            setValueOfPosition(playerRow,playerCol,2);
+            //player moved. Setting previous location to 0
+            setValueOfPosition(playerRow-1,playerCol,0);
+            return true;
+        }
+        return false;
+    }
+
+
 
 	public void setPlayerPosition(int row,int col){
 		// Setting old position to 0
