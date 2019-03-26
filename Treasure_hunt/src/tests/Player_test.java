@@ -166,27 +166,51 @@ public class Player_test {
 	
 	@Test
 	public void playerMoveDownDirection_intoOpenSpace() {
-		assertEquals(false,true);
+		testGameSession.gameBoard.setPlayerPosition(2,1);
+		assertEquals("Position below player is open space (0)",0,intBelowPlayer());
+		assertEquals("Verifying player is allowed to move down",true,testGameSession.gameBoard.playerWantToMoveDown());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+
 	}
 	
 	@Test
 	public void playerMoveDownDirection_intoLaser() {
-		assertEquals(false,true);
+		testGameSession.gameBoard.setPlayerPosition(3,7);
+		assertEquals("Position below player is a laser(5)",5,intBelowPlayer());
+		assertEquals("Verifying player is allowed to move down",true,testGameSession.gameBoard.playerWantToMoveDown());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
 	}
 	
 	@Test
 	public void playerMoveDownDirection_intoTreasure() {
-		assertEquals(false,true);
+		testGameSession.gameBoard.setPlayerPosition(2,5);
+		assertEquals("Position below player is a treasure (3)",3,intBelowPlayer());
+		assertEquals("Verifying player is allowed to move down",true,testGameSession.gameBoard.playerWantToMoveDown());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
 	}
 	
 	@Test
 	public void playerMoveDownDirection_intoDoor() {
-		assertEquals(false,true);
+		// First setting a door
+		testGameSession.gameBoard.setValueOfPosition(18,1,4);
+		//setting playerlocation to right of the door
+		testGameSession.gameBoard.setPlayerPosition(17,1);
+
+		assertEquals("Position below player is a door (4)",4,intBelowPlayer());
+		assertEquals("Verifying player is allowed to move down",true,testGameSession.gameBoard.playerWantToMoveDown());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+
 	}
 	
 	@Test
 	public void playerMoveDownDirection_intoWall() {
-		assertEquals(false,true);
+		//setting playerlocation to right of the door
+		testGameSession.gameBoard.setPlayerPosition(17,1);
+
+		assertEquals("Position below player is a wall (1)",1,intBelowPlayer());
+		assertEquals("Verifying player is not allowed to move down",false,testGameSession.gameBoard.playerWantToMoveDown());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+
 	}
 
 	private int intLeftOfPlayer(){
@@ -203,6 +227,12 @@ public class Player_test {
 
 	private int intAbovePlayer(){
 		int row=testGameSession.gameBoard.player.getPlayerRowNumber()-1;
+		int col=testGameSession.gameBoard.player.getPlayerColNumber();
+		return testGameSession.gameBoard.getValueOfPosition(row,col);
+	}
+
+	private int intBelowPlayer(){
+		int row=testGameSession.gameBoard.player.getPlayerRowNumber()+1;
 		int col=testGameSession.gameBoard.player.getPlayerColNumber();
 		return testGameSession.gameBoard.getValueOfPosition(row,col);
 	}
