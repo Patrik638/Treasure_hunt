@@ -152,4 +152,13 @@ public class GameBoard {
 		// setting position of player to board
 		setValueOfPosition(row,col,2);
 	}
+
+
+	public void disableDoor(int row, int col) {
+		setValueOfPosition(row, col, 1);
+	}
+	
+	public void enableDoor(int row, int col) {
+		setValueOfPosition(row, col, 4);
+	}
 }

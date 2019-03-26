@@ -1,25 +1,27 @@
 package tests;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
+import Main.GameSession;
+import Main.Treasure;
+
 public class Treasure_test {
+	
+	GameSession testGameSession = new GameSession();
 
 	@Test
-	public void treasureNotYetFound() {
-		// skatträknare ska vara 0
-		// alla positioner i gameboard ska vara 3
-		// bool display ska vara true
-	}
-	
-	@Test
 	public void treasureFound() {
-		// hämta init värden
-		// ändra position till 0
-		// bool till false	
+		Treasure treasure = new Treasure();
+		assertEquals("Expecting 6 treasure to exist",6,treasure.numberOfCurrentTreasureOnBoard());
+		treasure.treasureFounded(3, 5);
+		assertEquals("Expecting 5 treasure to exist",5,treasure.numberOfCurrentTreasureOnBoard());	
 	}
 	
 	@Test
 	public void treasureCounter() {
-		// verifiera att räknaren är uppdaterad
+		Treasure treasure = new Treasure();
+		assertEquals("Expecting 6 treasure to exist",6,treasure.numberOfCurrentTreasureOnBoard());
 	}
 }

@@ -15,21 +15,15 @@ public class Door_test {
 	
 	@Test
 	public void onlyOneDoorAtBoard() {
+		Door door = new Door();
 		int doorsFound = 0;
-		for (int row = 0; row< testGameSession.gameBoard.getNumberOfRows(); row++){
-			for(int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++){
-				if (testGameSession.gameBoard.getValueOfPosition(row,col)==2){
-					doorsFound++;
-				}
-			}
-		}
-		assertEquals("Expecting one door to exist",1,doorsFound);
+		assertEquals("Expecting one door to exist",1,door.doorAtBoard(doorsFound));
 	}
 	
 	@Test
 	public void doorDisabled() {
-		Door door = new Door();
-		assertFalse(door.isDoorEnabled(8, 29));
+		testGameSession.gameBoard.setValueOfPosition(8, 29, 1);
+		assertEquals("Door not enabled",1,testGameSession.gameBoard.getValueOfPosition(8, 29));
 	}
 	
 	@Test

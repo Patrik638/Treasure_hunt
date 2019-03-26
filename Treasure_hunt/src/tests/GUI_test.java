@@ -1,9 +1,7 @@
 package tests;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 import Main.GameSession;
 
 public class GUI_test {
@@ -12,11 +10,12 @@ public class GUI_test {
 	
 	@Test
 	public void jTextAreaShowText() throws InterruptedException {
-		String expectedText = "Test of JTextArea";
+		int expectedValue = 3;
 		testGameSession.frame.setVisible(true);
 		assertNotNull(testGameSession.text);
-		testGameSession.text.setText("Test of JTextArea");
-		assertEquals(expectedText, testGameSession.text.getText());
+		testGameSession.gameBoard.getValueOfPosition(1, 11);
+		Thread.sleep(100);
+		assertEquals(expectedValue, testGameSession.gameBoard.getValueOfPosition(1, 11));
 	}
 	
 	@Test

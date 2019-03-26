@@ -27,7 +27,6 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 
 		text = new JTextArea();
 		text.addKeyListener(this);
-
 		text.setBounds(20, 20, 600, 550);
 		text.setFont(new Font("Arial", Font.PLAIN, 24));
 		frame.add(text);
@@ -68,6 +67,7 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 	}
 
 	public void run() {
+		gameBoard.disableDoor(8, 29);
 		while(!gameOver)
 		{
 			text.setText("");
