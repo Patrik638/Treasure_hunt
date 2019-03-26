@@ -25,10 +25,10 @@ public class GUI_test {
 	        int frameHeight = testGameSession.frame.getHeight();
 	        int frameWidth = testGameSession.frame.getWidth();
 	        assertEquals(620,frameHeight);
-	        assertEquals(460,frameWidth);
+	        assertEquals(600,frameWidth);
 	        int textHeight = testGameSession.text.getHeight();
 	        int textWidth = testGameSession.text.getWidth();
 	        assertEquals(550,textHeight);
-	        assertEquals(400,textWidth);
+	        assertEquals(600,textWidth);
 	    }
 }

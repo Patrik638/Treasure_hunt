@@ -96,12 +96,25 @@ public class GameBoard {
 		return getValueOfPosition(playerRow+1,playerCol);
 	}
 
-	public void playerWantToMoveLeft() {
+	public boolean playerWantToMoveLeft() {
 		if (player.movePlayerLeft(getIntLeftFromPlayer())){
-            setValueOfPosition(playerRow,playerCol-1,2);
+			updatePlayerPosition();
+            setValueOfPosition(playerRow,playerCol,2);
             //player moved. Setting previous location to 0
-            setValueOfPosition(playerRow,playerCol,0);
+            setValueOfPosition(playerRow,playerCol+1,0);
+            return true;
         }
+		return false;
+	}
 
+	public void setPlayerPosition(int row,int col){
+		// Setting old position to 0
+		setValueOfPosition(player.getPlayerRowNumber(),player.getPlayerColNumber(),0);
+		// Changing location to player
+
+		player.setPlayerPosition(row,col);
+		updatePlayerPosition();
+		// setting position of player to board
+		setValueOfPosition(row,col,2);
 	}
 }
