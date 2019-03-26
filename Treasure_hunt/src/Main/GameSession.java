@@ -46,9 +46,11 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
                 break;
             case 'a':
                 gameBoard.playerWantToMoveLeft();
-            case 's':
                 break;
+            case 's':
+
             case 'd':
+				gameBoard.playerWantToMoveRight();
                 break;
             default:
                 // Do nothing

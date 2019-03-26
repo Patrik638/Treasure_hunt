@@ -107,6 +107,18 @@ public class GameBoard {
 		return false;
 	}
 
+	public boolean playerWantToMoveRight() {
+		if (player.movePlayerRight(getIntRightFromPlayer())){
+			updatePlayerPosition();
+			setValueOfPosition(playerRow,playerCol,2);
+			//player moved. Setting previous location to 0
+			setValueOfPosition(playerRow,playerCol-1,0);
+			return true;
+		}
+		return false;
+	}
+
+
 	public void setPlayerPosition(int row,int col){
 		// Setting old position to 0
 		setValueOfPosition(player.getPlayerRowNumber(),player.getPlayerColNumber(),0);

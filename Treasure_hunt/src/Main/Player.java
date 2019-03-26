@@ -19,6 +19,17 @@ public class Player {
         }
     }
 
+    public boolean movePlayerRight(int potentialTargetLocationInt) {
+        if (potentialTargetLocationInt == 1) {
+            //Player is not allowed to to navigate into a wall
+            return false;
+        } else {
+            col++;
+            return true;
+        }
+    }
+
+
     public int getPlayerColNumber() {
         return col;
     }

@@ -33,7 +33,6 @@ public class Player_test {
 	
 	@Test
 	public void playerMoveLeftDirection_intoOpenSpace() {
-		//TODO:Set player location so open space exists to the left
 		testGameSession.gameBoard.setPlayerPosition(1,3);
 		assertEquals("Position to the left of player is open space (0)",0,intLeftOfPlayer());
 		assertEquals("Verifying player is allowed to move to the left",true,testGameSession.gameBoard.playerWantToMoveLeft());
@@ -42,27 +41,29 @@ public class Player_test {
 	
 	@Test
 	public void playerMoveLeftDirection_intoLaser() {
-
-		//TODO:Set player location so a laser exists to the left
-
+		testGameSession.gameBoard.setPlayerPosition(12,4);
 		assertEquals("Position to the left of player is laser area (5)",5,intLeftOfPlayer());
-		assertEquals("Verifying player is allowed to move to the left",true,testGameSession.gameBoard.player.movePlayerLeft(intLeftOfPlayer()));
+		assertEquals("Verifying player is allowed to move to the left",true,testGameSession.gameBoard.playerWantToMoveLeft());
 		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
 	}
 	
 	@Test
 	public void playerMoveLeftDirection_intoTreasure() {
-		//TODO:Set player location so a treasure exists to the left
+		testGameSession.gameBoard.setPlayerPosition(3,6);
 		assertEquals("Position to the left of player is a treasure(3)",3,intLeftOfPlayer());
-		assertEquals("Verifying player is allowed to move to the left",true,testGameSession.gameBoard.player.movePlayerLeft(intLeftOfPlayer()));
+		assertEquals("Verifying player is allowed to move to the left",true,testGameSession.gameBoard.playerWantToMoveLeft());
 		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
 	}
 	
 	@Test
 	public void playerMoveLeftDirection_intoDoor() {
-		//TODO:Set player location so a door exists to the left
+		// First setting a door
+		testGameSession.gameBoard.setValueOfPosition(1,0,4);
+		//setting playerlocation to right of the door
+		testGameSession.gameBoard.setPlayerPosition(1,1);
+
 		assertEquals("Position to the left of player is a door(4)",4,intLeftOfPlayer());
-		assertEquals("Verifying player is allowed to move to the left",true,testGameSession.gameBoard.player.movePlayerLeft(intLeftOfPlayer()));
+		assertEquals("Verifying player is allowed to move to the left",true,testGameSession.gameBoard.playerWantToMoveLeft());
 		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
 	}
 	
@@ -74,28 +75,48 @@ public class Player_test {
 	}
 	
 	@Test
-	public void playerMoveRightDirection() {
-		assertEquals(false,true);
+	public void playerMoveRightDirection_intoOpenSpace() {
+		testGameSession.gameBoard.setPlayerPosition(2,1);
+		assertEquals("Position to the right of player is open space (0)",0,intRightOfPlayer());
+		assertEquals("Verifying player is allowed to move to the right",true,testGameSession.gameBoard.playerWantToMoveRight());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
 	}
 	
 	@Test
 	public void playerMoveRightDirection_intoLaser() {
-		assertEquals(false,true);
+		testGameSession.gameBoard.setPlayerPosition(2,15);
+		assertEquals("Position to the right of player is laser (5)",0,intRightOfPlayer());
+		assertEquals("Verifying player is allowed to move to the right",true,testGameSession.gameBoard.playerWantToMoveRight());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
 	}
 	
 	@Test
 	public void playerMoveRightDirection_intoTreasure() {
-		assertEquals(false,true);
+		testGameSession.gameBoard.setPlayerPosition(1,10);
+		assertEquals("Position to the right of player is a treasure(3)",3,intRightOfPlayer());
+		assertEquals("Verifying player is allowed to move to the right",true,testGameSession.gameBoard.playerWantToMoveRight());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
 	}
 	
 	@Test
 	public void playerMoveRightDirection_intoDoor() {
-		assertEquals(false,true);
+		// First setting a door
+		testGameSession.gameBoard.setValueOfPosition(3,29,4);
+		//setting playerlocation to right of the door
+		testGameSession.gameBoard.setPlayerPosition(3,28);
+
+		assertEquals("Position to the right of player is a door(4)",4,intRightOfPlayer());
+		assertEquals("Verifying player is allowed to move to the right",true,testGameSession.gameBoard.playerWantToMoveRight());
+		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+
 	}
 	
 	@Test
 	public void playerMoveRightDirection_intoWall() {
-		assertEquals(false,true);
+		testGameSession.gameBoard.setPlayerPosition(3,28);
+		assertEquals("Position to the right of player is a wall (1)",1,intRightOfPlayer());
+		assertEquals("Verifying player is not allowed to move to the right",false,testGameSession.gameBoard.playerWantToMoveRight());
+		assertEquals("Player should remain on initial position",2,charAtExpectedPlayerLocation());
 	}
 	
 	@Test
@@ -153,6 +174,14 @@ public class Player_test {
 		int col=testGameSession.gameBoard.player.getPlayerColNumber()-1;
 		return testGameSession.gameBoard.getValueOfPosition(row,col);
 	}
+
+	private int intRightOfPlayer(){
+		int row=testGameSession.gameBoard.player.getPlayerRowNumber();
+		int col=testGameSession.gameBoard.player.getPlayerColNumber()+1;
+		return testGameSession.gameBoard.getValueOfPosition(row,col);
+	}
+
+
 	private int charAtExpectedPlayerLocation(){
 		int row=testGameSession.gameBoard.player.getPlayerRowNumber();
 		int col=testGameSession.gameBoard.player.getPlayerColNumber();
