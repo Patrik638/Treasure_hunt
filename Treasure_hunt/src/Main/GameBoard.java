@@ -4,10 +4,10 @@ import javax.swing.JTextArea;
 
 public class GameBoard {
 	/*
-	 * 	1=vägg
+	 * 	1=vï¿½gg
 		2=spelare
 		3=skatt
-		4=dörr
+		4=dï¿½rr
 		5=laser
 	 * 
 	 */

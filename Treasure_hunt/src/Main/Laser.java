@@ -14,4 +14,8 @@ public class Laser {
 		return false;
 	}
 
+	public boolean isLaserEnabled() {
+		return false;
+	}
+
 }

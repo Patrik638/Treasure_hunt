@@ -12,6 +12,9 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 	private Thread newThread;
 	public GameBoard gameBoard = new GameBoard();
 	public boolean gameOver = false;
+    public boolean timeOut = false;
+    public boolean youWon = false;
+    public int numberOfFoundTreasures = 0;
 	public JFrame frame = new JFrame("Treasure hunt");
 	public JTextArea text;
 	public JLabel tCounter;
@@ -38,7 +41,7 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 		frame.add(tCounter);
 		frame.setVisible(true);
 
-		//Skapar en ny tråd
+		//Skapar en ny trï¿½d
 		newThread = new Thread(this);
 		newThread.start();
 	}
@@ -91,3 +94,4 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 		new GameSession();
 	}
 }
+
