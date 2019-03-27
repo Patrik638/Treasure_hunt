@@ -87,7 +87,7 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 
 	public void run() {
 		gameBoard.disableDoor(8, 29);
-		while(!gameOver)
+		while(!gameOver())
 		{
 			text.setText("");
 			text = gameBoard.print(text);
@@ -103,5 +103,9 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 	public static void main(String[] args) throws InterruptedException {
 		new GameSession();
 	}
+	public boolean gameOver(){
+	    this.gameOver=gameBoard.gameBoardGameOver;
+	    return gameOver;
+    }
 }
 
