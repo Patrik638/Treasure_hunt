@@ -45,6 +45,7 @@ public class Player_test {
 		assertEquals("Position to the left of player is laser area (5)",5,intLeftOfPlayer());
 		assertEquals("Verifying player is allowed to move to the left",true,testGameSession.gameBoard.playerWantToMoveLeft());
 		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+		assertEquals("GameOver boolean should be set to true",true,testGameSession.gameOver);
 	}
 	
 	@Test
@@ -88,6 +89,7 @@ public class Player_test {
 		assertEquals("Position to the right of player is laser (5)",0,intRightOfPlayer());
 		assertEquals("Verifying player is allowed to move to the right",true,testGameSession.gameBoard.playerWantToMoveRight());
 		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+		assertEquals("GameOver boolean should be set to true",true,testGameSession.gameOver);
 	}
 	
 	@Test
@@ -133,6 +135,7 @@ public class Player_test {
 		assertEquals("Position above player is Laser (5)",5,intAbovePlayer());
 		assertEquals("Verifying player is allowed to move up",true,testGameSession.gameBoard.playerWantToMoveUp());
 		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+		assertEquals("GameOver boolean should be set to true",true,testGameSession.gameOver);
 	}
 	
 	@Test
@@ -179,6 +182,7 @@ public class Player_test {
 		assertEquals("Position below player is a laser(5)",5,intBelowPlayer());
 		assertEquals("Verifying player is allowed to move down",true,testGameSession.gameBoard.playerWantToMoveDown());
 		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+		assertEquals("GameOver boolean should be set to true",true,testGameSession.gameOver);
 	}
 	
 	@Test
