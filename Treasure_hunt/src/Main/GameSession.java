@@ -37,7 +37,7 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 		frame.add(text);
 		tCounter = new JLabel();
 		tCounter.setBounds(20, 560, 200, 60);
-		tCounter.setText("Number of treasures remaining: ");
+		tCounter.setText("Number of treasures found: "+numberOfFoundTreasures+"/"+gameBoard.numberOfCurrentTreasureOnBoard());
 		frame.add(tCounter);
 		frame.setVisible(true);
 

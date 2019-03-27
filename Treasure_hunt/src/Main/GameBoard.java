@@ -155,9 +155,17 @@ public class GameBoard {
 	
 	// Ej klar
 	public int numberOfCurrentTreasureOnBoard() {
-		return 0; 
+		int treasuresFounded=0;
+		for (int row = 0; row< gameBoard.length; row++){
+			for(int col = 0; col < gameBoard[0].length; col++){
+				if (gameBoard[row][col]==3){
+					treasuresFounded++;
+				}
+			}
+		}
+		return treasuresFounded;
 	}
-
+	
 	public void disableDoor(int row, int col) {
 		setValueOfPosition(row, col, 1);
 	}
