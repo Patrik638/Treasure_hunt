@@ -14,14 +14,14 @@ public class Treasure_test {
 	@Test
 	public void treasureFound() {
 		Treasure treasure = new Treasure();
-		assertEquals("Expecting 6 treasure to exist",6,treasure.numberOfCurrentTreasureOnBoard());
+		assertEquals("Expecting 6 treasure to exist",6,treasure.numberOfTreasure());
 		treasure.treasureFounded(3, 5);
-		assertEquals("Expecting 5 treasure to exist",5,treasure.numberOfCurrentTreasureOnBoard());	
+		assertEquals("Expecting 5 treasure to exist",5,treasure.numberOfTreasure());	
 	}
 	
 	@Test
 	public void treasureCounter() {
 		Treasure treasure = new Treasure();
-		assertEquals("Expecting 6 treasure to exist",6,treasure.numberOfCurrentTreasureOnBoard());
+		assertEquals("Expecting 6 treasure to exist",6,treasure.numberOfTreasure());
 	}
 }

@@ -3,6 +3,7 @@ package Main;
 import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 @SuppressWarnings("serial")
@@ -13,10 +14,11 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 	public boolean gameOver = false;
 	public JFrame frame = new JFrame("Treasure hunt");
 	public JTextArea text;
+	public JLabel tCounter;
 
 	public GameSession() {
 		frame.setLayout(null);
-		frame.setSize(600,620);
+		frame.setSize(600,650);
 		frame.setLocation(100,50);
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
@@ -27,9 +29,13 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 
 		text = new JTextArea();
 		text.addKeyListener(this);
-		text.setBounds(20, 20, 600, 550);
+		text.setBounds(20, 20, 550, 550);
 		text.setFont(new Font("Arial", Font.PLAIN, 24));
 		frame.add(text);
+		tCounter = new JLabel();
+		tCounter.setBounds(20, 560, 200, 60);
+		tCounter.setText("Number of treasures remaining: ");
+		frame.add(tCounter);
 		frame.setVisible(true);
 
 		//Skapar en ny tråd
@@ -72,6 +78,7 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 		{
 			text.setText("");
 			text = gameBoard.print(text);
+			
 			try {
 				Thread.sleep(300);
 			} catch (InterruptedException e) {
