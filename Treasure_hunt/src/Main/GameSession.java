@@ -12,7 +12,7 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 	private Thread newThread;
 	public GameBoard gameBoard = new GameBoard();
 	public boolean gameOver = false;
-    public boolean timeOut = false;
+    public static boolean timeOut = false;
     public boolean youWon = false;
     public int numberOfFoundTreasures = 0;
 	public JFrame frame = new JFrame("Treasure hunt");
@@ -75,9 +75,19 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 
 	}
 
+	public static boolean GetTimout(){
+		return timeOut;
+	}
+
+	//Call this method for Timeout in case of Laser or Finding Tresure
+	public static boolean SetTimeout(){
+		timeOut=true ;
+		return timeOut;
+	}
+
 	public void run() {
 		gameBoard.disableDoor(8, 29);
-		while(!gameOver)
+		while(!gameOver())
 		{
 			text.setText("");
 			text = gameBoard.print(text);
@@ -93,5 +103,9 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 	public static void main(String[] args) throws InterruptedException {
 		new GameSession();
 	}
+	public boolean gameOver(){
+	    this.gameOver=gameBoard.gameBoardGameOver;
+	    return gameOver;
+    }
 }
 

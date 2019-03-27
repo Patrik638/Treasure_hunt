@@ -45,6 +45,7 @@ public class Player_test {
 		assertEquals("Position to the left of player is laser area (5)",5,intLeftOfPlayer());
 		assertEquals("Verifying player is allowed to move to the left",true,testGameSession.gameBoard.playerWantToMoveLeft());
 		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+		assertEquals("GameOver boolean should be set to true",true,testGameSession.gameBoard.gameBoardGameOver);
 	}
 	
 	@Test
@@ -84,10 +85,11 @@ public class Player_test {
 	
 	@Test
 	public void playerMoveRightDirection_intoLaser() {
-		testGameSession.gameBoard.setPlayerPosition(2,15);
-		assertEquals("Position to the right of player is laser (5)",0,intRightOfPlayer());
+		testGameSession.gameBoard.setPlayerPosition(2,14);
+		assertEquals("Position to the right of player is laser (5)",5,intRightOfPlayer());
 		assertEquals("Verifying player is allowed to move to the right",true,testGameSession.gameBoard.playerWantToMoveRight());
 		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+		assertEquals("GameOver boolean should be set to true",true,testGameSession.gameBoard.gameBoardGameOver);
 	}
 	
 	@Test
@@ -133,6 +135,7 @@ public class Player_test {
 		assertEquals("Position above player is Laser (5)",5,intAbovePlayer());
 		assertEquals("Verifying player is allowed to move up",true,testGameSession.gameBoard.playerWantToMoveUp());
 		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+		assertEquals("GameOver boolean should be set to true",true,testGameSession.gameBoard.gameBoardGameOver);
 	}
 	
 	@Test
@@ -179,6 +182,7 @@ public class Player_test {
 		assertEquals("Position below player is a laser(5)",5,intBelowPlayer());
 		assertEquals("Verifying player is allowed to move down",true,testGameSession.gameBoard.playerWantToMoveDown());
 		assertEquals("Player should display on new position",2,charAtExpectedPlayerLocation());
+		assertEquals("GameOver boolean should be set to true",true,testGameSession.gameBoard.gameBoardGameOver);
 	}
 	
 	@Test
@@ -222,7 +226,8 @@ public class Player_test {
 	private int intRightOfPlayer(){
 		int row=testGameSession.gameBoard.player.getPlayerRowNumber();
 		int col=testGameSession.gameBoard.player.getPlayerColNumber()+1;
-		return testGameSession.gameBoard.getValueOfPosition(row,col);
+		int returnInt=testGameSession.gameBoard.getValueOfPosition(row,col);
+		return returnInt;
 	}
 
 	private int intAbovePlayer(){

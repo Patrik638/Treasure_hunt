@@ -34,7 +34,8 @@ public class GameBoard {
 			{1,0,0,0,0,1,0,1,0,0,0,0,0,1,0,1,3,0,1,0,0,0,0,0,0,0,0,0,0,1},
 			{1,0,0,0,3,1,0,1,1,0,0,0,0,1,3,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1},
 			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}};
-	
+
+	public boolean gameBoardGameOver =false;
 	public GameBoard() {
 		
 	}
@@ -97,44 +98,52 @@ public class GameBoard {
 	}
 
 	public boolean playerWantToMoveLeft() {
-		if (player.movePlayerLeft(getIntLeftFromPlayer())){
+		int targetPos=getIntLeftFromPlayer();
+		if (player.movePlayerLeft(targetPos)){
 			updatePlayerPosition();
             setValueOfPosition(playerRow,playerCol,2);
             //player moved. Setting previous location to 0
             setValueOfPosition(playerRow,playerCol+1,0);
+            setGameBoardGameOverOverIfLaserIsHit(targetPos);
             return true;
         }
 		return false;
 	}
 
 	public boolean playerWantToMoveRight() {
-		if (player.movePlayerRight(getIntRightFromPlayer())){
+		int targetPos=getIntRightFromPlayer();
+		if (player.movePlayerRight(targetPos)){
 			updatePlayerPosition();
 			setValueOfPosition(playerRow,playerCol,2);
 			//player moved. Setting previous location to 0
 			setValueOfPosition(playerRow,playerCol-1,0);
+			setGameBoardGameOverOverIfLaserIsHit(targetPos);
 			return true;
 		}
 		return false;
 	}
 
     public boolean playerWantToMoveUp() {
-        if (player.movePlayerUp(getIntUpFromPlayer())){
+		int newTargetPos=getIntUpFromPlayer();
+        if (player.movePlayerUp(newTargetPos)){
             updatePlayerPosition();
             setValueOfPosition(playerRow,playerCol,2);
             //player moved. Setting previous location to 0
             setValueOfPosition(playerRow+1,playerCol,0);
+			setGameBoardGameOverOverIfLaserIsHit(newTargetPos);
             return true;
         }
         return false;
     }
 
     public boolean playerWantToMoveDown() {
+		int targetPos=getIntDownFromPlayer();
         if (player.movePlayerDown(getIntDownFromPlayer())){
             updatePlayerPosition();
             setValueOfPosition(playerRow,playerCol,2);
             //player moved. Setting previous location to 0
             setValueOfPosition(playerRow-1,playerCol,0);
+			setGameBoardGameOverOverIfLaserIsHit(targetPos);
             return true;
         }
         return false;
@@ -172,5 +181,11 @@ public class GameBoard {
 	
 	public void enableDoor(int row, int col) {
 		setValueOfPosition(row, col, 4);
+	}
+
+	private void setGameBoardGameOverOverIfLaserIsHit(int targetInt){
+		if(targetInt==5){
+			gameBoardGameOver =true;
+		}
 	}
 }
