@@ -162,7 +162,6 @@ public class GameBoard {
 		setValueOfPosition(row,col,2);
 	}
 	
-	// Ej klar
 	public int numberOfCurrentTreasureOnBoard() {
 		int treasuresFounded=0;
 		for (int row = 0; row< gameBoard.length; row++){
@@ -173,6 +172,12 @@ public class GameBoard {
 			}
 		}
 		return treasuresFounded;
+	}
+	
+	public void checkToOpenDoor(int value) {
+		if (numberOfCurrentTreasureOnBoard()==value) {
+			enableDoor(8, 29);
+		}
 	}
 	
 	public void disableDoor(int row, int col) {

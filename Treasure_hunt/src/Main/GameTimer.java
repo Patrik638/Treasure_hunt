@@ -15,7 +15,7 @@ public class GameTimer {
                 if(!GameSession.GetTimout())
                 //one secunds
                 sleep(60);}
-        GameSession.SetTimeout();
+            	GameSession.SetTimeout();
                 //How much time is passed
                 long end = System.currentTimeMillis();
                 float sec = (end - start) / 1000;

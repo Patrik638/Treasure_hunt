@@ -1,11 +1,8 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
-
 import Main.GameSession;
-import Main.Treasure;
 
 public class Treasure_test {
 	
@@ -13,9 +10,8 @@ public class Treasure_test {
 
 	@Test
 	public void treasureFound() {
-		Treasure treasure = new Treasure();
 		assertEquals("Expecting 6 treasure to exist",6,testGameSession.gameBoard.numberOfCurrentTreasureOnBoard());
-		treasure.treasureFounded(3, 5);
+		testGameSession.gameBoard.setValueOfPosition(3, 5, 0);
 		assertEquals("Expecting 5 treasure to exist",5,testGameSession.gameBoard.numberOfCurrentTreasureOnBoard());	
 	}
 	

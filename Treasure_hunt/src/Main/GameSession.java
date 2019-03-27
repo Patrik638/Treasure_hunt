@@ -15,6 +15,7 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
     public static boolean timeOut = false;
     public boolean youWon = false;
     public int numberOfFoundTreasures = 0;
+    public int totalNumberOfTreasureOnBoard = gameBoard.numberOfCurrentTreasureOnBoard();
 	public JFrame frame = new JFrame("Treasure hunt");
 	public JTextArea text;
 	public JLabel tCounter;
@@ -37,7 +38,7 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 		frame.add(text);
 		tCounter = new JLabel();
 		tCounter.setBounds(20, 560, 200, 60);
-		tCounter.setText("Number of treasures found: "+numberOfFoundTreasures+"/"+gameBoard.numberOfCurrentTreasureOnBoard());
+		tCounter.setText("Number of treasures found: "+numberOfFoundTreasures+"/"+totalNumberOfTreasureOnBoard);
 		frame.add(tCounter);
 		frame.setVisible(true);
 
@@ -84,14 +85,19 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 		timeOut=true ;
 		return timeOut;
 	}
+	
+	public int remainingTreasure() {
+		return totalNumberOfTreasureOnBoard-gameBoard.numberOfCurrentTreasureOnBoard();
+	}
 
 	public void run() {
 		gameBoard.disableDoor(8, 29);
-		while(!gameOver())
+		while(!gameOver)
 		{
 			text.setText("");
 			text = gameBoard.print(text);
-			
+			tCounter.setText("Number of treasures found: "+remainingTreasure()+"/"+totalNumberOfTreasureOnBoard);
+			gameBoard.checkToOpenDoor(0);
 			try {
 				Thread.sleep(300);
 			} catch (InterruptedException e) {
@@ -108,4 +114,3 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 	    return gameOver;
     }
 }
-
