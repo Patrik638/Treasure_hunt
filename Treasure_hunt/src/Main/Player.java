@@ -59,8 +59,8 @@ public class Player {
         return row;
     }
 
-    public void setPlayerPosition(int row, int col){
-        this.row=row;
-        this.col=col;
+    public void setPlayerPosition(int row, int col) {
+        this.row = row;
+        this.col = col;
     }
 }
