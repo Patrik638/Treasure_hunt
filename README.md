@@ -13,8 +13,7 @@ This is a group project that is created as education for test driven development
 ## Examples of JUnit tests
 
 ## Setup
-To have the JUnit tests running you need to add junit*.jar to your IDE. Ex. junit-4.6.jar
-or create a dependencie if it is a Maven project:
+To have the JUnit tests running you need to add junit*.jar to your IDE Ex. junit-4.6.jar or if it is a Maven project add a dependencie to the pom.xml file.
 
 ```
 $   <dependencies>
