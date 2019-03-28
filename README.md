@@ -6,6 +6,7 @@ This application is a game that involves collecting treasures during an certain 
 * [General info](#general-info)
 * [Examples of JUnit tests](#examples-of-JUnit-tests)
 * [Setup](#setup)
+* [License](#license)
 
 ## Team members
 * Nicklas Carlsson
@@ -35,6 +36,7 @@ $			<version>4.12</version>
 $			<scope>test</scope>
 $		</dependency>
 $	</dependencies>
+```
 
 ## License
 Licensed under the GNU General Public License v2.0
