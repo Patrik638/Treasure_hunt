@@ -1,5 +1,7 @@
 package Main;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -7,48 +9,21 @@ import static Main.GameSession.*;
 import static java.lang.Thread.sleep;
 
 public class GameTimer {
+    Instant  start ;
+    public void StartTimer(){
 
-
-    public float Timer() throws InterruptedException {
-        long start = System.currentTimeMillis();
-        //set timer for a minute
-        for (int i = 0; i < 1000; i++) {
-            if (!GameSession.GetTimout())
-                //one secunds
-                sleep(60);
-        }
-        GameSession.SetTimeout();
-        //How much time is passed
-        long end = System.currentTimeMillis();
-        float sec = (end - start) / 1000;
-        // System.out.println(sec + " seconds");
-        return sec;
-
+        start = Instant.now();
 
     }
-
-    public float LaserTimer() throws InterruptedException {
-        long start = System.currentTimeMillis();
-        //Set tierm for 6 secunds
-        for (int i = 0; i < 100; i++) {
-            //one secunds
-            sleep(60);
-        }
-        //How much time is passed
-        long end = System.currentTimeMillis();
-
-        float sec = (end - start) / 1000;
-        // System.out.println(sec + " seconds");
-        return sec;
+    public long CurentTimer(){ //THis method can use in Laser and for showing how much is Passed
+        Instant TimeTemp= Instant.now();
+        long TimeElapsed= Duration.between(start, TimeTemp).toMillis();
+        return TimeElapsed;
+    }
+    public Instant GetStartTime(){ // It returing Start It can use for preseting Start time to GUI
+        return start;
     }
 
-  /* public static void main(String[] args) throws Exception{
-        GameTimer gametimertest = new GameTimer();
-        gametimertest.LaserTimer();
-        gametimertest.Timer();
-
-
-    }*/
 }
 
 

@@ -1,6 +1,7 @@
 package tests;
 
 import java.text.ParseException;
+import java.time.Instant;
 
 import Main.GameSession;
 import Main.GameTimer;
@@ -14,39 +15,23 @@ import static org.junit.Assert.assertEquals;
 
 public class Timer_test {
 
+
     @Test
-    public void isTimeoutTrue() throws InterruptedException {
-        GameSession testGameSession = new GameSession();
-        GameTimer testGameTimer = new GameTimer();
-        testGameTimer.Timer();
-        assertEquals(true, testGameSession.GetTimout());
+    public void IsitTimecurenttime(){
+        GameTimer TestTimer=new GameTimer();
+        Instant Whattimeisnow= Instant.now();
+        TestTimer.StartTimer();
+        assertEquals(Whattimeisnow,TestTimer.GetStartTime());
     }
-
     @Test
-    public void isTimeoutFalse() throws InterruptedException {
-        GameSession testGameSession = new GameSession();
-        GameTimer testGameTimer = new GameTimer();
-        testGameTimer.Timer();
-        assertEquals(false, !testGameSession.GetTimout());
-    }
+    public void IsItTImerGiveRightPassedTime() throws InterruptedException {
+        GameTimer TestTimer=new GameTimer();
+        TestTimer.StartTimer();
+        Thread.sleep(40);
+        long ActualTimePassed=41;//It should be Pluse one Due to This line take one milisecound to complie
 
-    @Test
-    public void TimeIsMaxValue() throws InterruptedException {
-        GameSession testGameSession = new GameSession();
-        GameTimer testGameTimer = new GameTimer();
-        float Actual = testGameTimer.Timer();
-        float ExpectedS = 60;
-        assertEquals(ExpectedS, Actual, 0);
+        assertEquals(ActualTimePassed,TestTimer.CurentTimer());
 
-    }
-
-    @Test
-    public void LaserTimeTest() throws InterruptedException {
-        GameSession testGameSession = new GameSession();
-        GameTimer testGameTimer = new GameTimer();
-        float Actual = testGameTimer.LaserTimer();
-        float ExpectedS = 6;
-        assertEquals(ExpectedS, Actual, 0);
     }
 
 };

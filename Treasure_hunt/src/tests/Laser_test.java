@@ -36,8 +36,8 @@ public class Laser_test {
 		Laser laser = new Laser();
 		GameSession testGameSession = new GameSession();
 		GameTimer testGameTimer = new GameTimer();
-		float Actual = testGameTimer.LaserTimer();
-		float ExpectedS = 6;
+		long Actual = testGameTimer.CurentTimer();
+		long ExpectedS = 6;
 		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows(); row++) {
 			for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
 
