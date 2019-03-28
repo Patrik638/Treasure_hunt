@@ -1,4 +1,5 @@
 # Treasure_hunt
+This application is a game that involves collecting treasures during an certain period of time, this while there are lasers that are activated after a certain time schedule.
 
 ## Table of contents
 * [General info](#general-info)
