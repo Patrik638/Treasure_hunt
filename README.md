@@ -14,11 +14,11 @@ This application is a game that involves collecting treasures during an certain 
 * Patrik Karlsson
 
 ## General info
-This is a group project that is created as education for test driven development.
+This is a group project that is created as education for test driven development. It is written in Java and the user inteface is Swing
 
 ## Examples of JUnit tests
-* testSetValueOfPositionMethod (test that method to change value on gameboard works).
-* 
+* testSetValueOfPositionMethod (test to verify that method to change value on gameboard works).
+* playerMoveLeftDirection_intoWall (test to verify that player can not move thru wall our outside the frame).
 * 
 * 
 * 
@@ -35,3 +35,6 @@ $			<version>4.12</version>
 $			<scope>test</scope>
 $		</dependency>
 $	</dependencies>
+
+## License
+Licensed under the GNU General Public License v2.0
