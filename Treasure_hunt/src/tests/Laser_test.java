@@ -1,70 +1,69 @@
 package tests;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Timer;
-
 import org.junit.Test;
 
 import Main.GameSession;
+import Main.GameTimer;
 import Main.Laser;
 
 public class Laser_test {
 
-    GameSession testGameSession = new GameSession();
-//	Timer timer = new Timer();
+	GameSession testGameSession = new GameSession();
 
-    @Test
-    public void LasersExistsAtBoard() {
-        Laser laser = new Laser();
-        int lasersFound = 0;
-        for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows(); row++) {
-            for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
+	@Test
+	public void LasersExistsAtBoard() {
+		int lasersFound = 0;
+		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows(); row++) {
+			for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
 
-                while (row == 4) {
-                    if (col == 7)
-                        lasersFound++;
-                    else if (col == 8)
-                        lasersFound++;
-                    else if (col == 9)
-                        lasersFound++;
-                    else if (col == 10)
-                        lasersFound++;
-                    else if (col == 11)
-                        lasersFound++;
-                }
-            }
-        }
+				if (testGameSession.gameBoard.getValueOfPosition(row, col) == 5)
 
-        assertEquals("Finding a laser", 1, lasersFound);
-        assertFalse(laser.isLaserEnabled());
+					lasersFound++;
 
-    }
+			}
+		}
 
-    // Checking laser from row = 4 to column = (7 - 11)
-    @Test
-    public void laser1Enabled() {
+		assertEquals("Finding all lasers on Game board", 14, lasersFound);
 
-        Laser laser = new Laser();
+	}
 
-        int row = 4;
-        for (int col = 7; col < 12; col++) {
-            assertTrue(laser.isLaserEnabled(row, col));
-        }
+	@Test
+	public void laserIsDisabled() throws InterruptedException {
+		Laser laser = new Laser();
+		GameSession testGameSession = new GameSession();
+		GameTimer testGameTimer = new GameTimer();
+		float Actual = testGameTimer.LaserTimer();
+		float ExpectedS = 6;
+		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows(); row++) {
+			for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
 
-    }
+				if (testGameSession.gameBoard.getValueOfPosition(row, col) == 5)
+					assertEquals(ExpectedS, Actual, 0);
 
-    // tester ska g�ras f�r alla fyra lasers
-//		@Test
-//		public void laser1Disabled() {
-    // instansieringg av test game session med timer satt till tex 7 sec d�r laser 1
-    // �r disablad
-    // verifiera a66 laseer1enabled booleanen �r false
-    // verifiera att den inte visas
+			}
+		}
 
-//		}
+	}
+
+	// Checking laser on board
+	@Test
+	public void laser1Enabled() {
+
+		Laser laser = new Laser();
+
+		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows(); row++) {
+			for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
+
+				if (testGameSession.gameBoard.getValueOfPosition(row, col) == 5)
+					assertTrue(laser.isLaserEnabled(row, col));
+			}
+
+		}
+
+	}
 
 }
