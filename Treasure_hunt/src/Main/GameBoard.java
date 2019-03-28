@@ -36,6 +36,8 @@ public class GameBoard {
 			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}};
 
 	public boolean gameBoardGameOver =false;
+	public boolean gameBoardGameWon = false;
+
 	public GameBoard() {
 		
 	}
@@ -105,6 +107,7 @@ public class GameBoard {
             //player moved. Setting previous location to 0
             setValueOfPosition(playerRow,playerCol+1,0);
             setGameBoardGameOverOverIfLaserIsHit(targetPos);
+			setGameBoardGameWonIfDoorIsHit(targetPos);
             return true;
         }
 		return false;
@@ -118,6 +121,7 @@ public class GameBoard {
 			//player moved. Setting previous location to 0
 			setValueOfPosition(playerRow,playerCol-1,0);
 			setGameBoardGameOverOverIfLaserIsHit(targetPos);
+			setGameBoardGameWonIfDoorIsHit(targetPos);
 			return true;
 		}
 		return false;
@@ -131,6 +135,7 @@ public class GameBoard {
             //player moved. Setting previous location to 0
             setValueOfPosition(playerRow+1,playerCol,0);
 			setGameBoardGameOverOverIfLaserIsHit(newTargetPos);
+			setGameBoardGameWonIfDoorIsHit(newTargetPos);
             return true;
         }
         return false;
@@ -144,6 +149,7 @@ public class GameBoard {
             //player moved. Setting previous location to 0
             setValueOfPosition(playerRow-1,playerCol,0);
 			setGameBoardGameOverOverIfLaserIsHit(targetPos);
+			setGameBoardGameWonIfDoorIsHit(targetPos);
             return true;
         }
         return false;
@@ -191,6 +197,11 @@ public class GameBoard {
 	private void setGameBoardGameOverOverIfLaserIsHit(int targetInt){
 		if(targetInt==5){
 			gameBoardGameOver =true;
+		}
+	}
+	private void setGameBoardGameWonIfDoorIsHit(int targetInt){
+		if(targetInt==4){
+			gameBoardGameWon=true;
 		}
 	}
 }
