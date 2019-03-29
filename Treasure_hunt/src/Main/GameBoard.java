@@ -35,7 +35,7 @@ public class GameBoard {
             {1, 0, 0, 0, 3, 1, 0, 1, 1, 0, 0, 0, 0, 1, 3, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
 
-    public boolean gameBoardGameOver = false;
+    public static boolean gameBoardGameOver = false;
     public boolean gameBoardGameWon = false;
 
     public GameBoard() {
@@ -206,5 +206,8 @@ public class GameBoard {
         if (targetInt == 4) {
             gameBoardGameWon = true;
         }
+    }
+    public boolean GetGameOver(){
+        return gameBoardGameOver;
     }
 }
