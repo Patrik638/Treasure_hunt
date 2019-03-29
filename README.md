@@ -22,8 +22,9 @@ The user interface presents a playing field created by a 2-dimensional Integer a
 * testSetValueOfPositionMethod (test to verify that method to change value on gameboard works).
 * playerMoveLeftDirection_intoWall (test to verify that player can not move thru wall our outside the frame).
 * jTextAreaShowText() (test to verify that GUI working correct).
-* 
-* 
+* IsitTimecurenttime() (test to verfiy Time is actual time now ).
+* IsItTImerGiveRightPassedTime() (Test to verify timer is working proper and give actual time had been passed).
+*
 
 ## Setup
 To have the JUnit tests running you need to add junit*.jar to your IDE Ex. junit-4.6.jar or if it is a Maven project add a dependencie to the pom.xml file.
