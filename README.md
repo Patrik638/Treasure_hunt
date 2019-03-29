@@ -15,7 +15,7 @@ This application is a game that involves collecting treasures during an certain 
 * Patrik Karlsson
 
 ## General info
-This is a group project that is created as education for test driven development. It is written in Java and the user interface is Swing.
+This application is developed as education for test driven development. It is written in Java and the user interface is Swing.
 The user interface presents a playing field created by a 2-dimensional Integer array. Value 2 on the playing field is the player itself. The player moves on the playing field through the keys A = left, D = right, W = Up and S = Down. Player must collect treasures (value 3 on the playing field) while the player must watch out for lasers (value 5 on the playing field). When all treasures are found the door opens (value 4 on the playing field). You have 60 seconds to find all the treasures and exit thru the door, otherwise it will be Gameover. It will also be Gameover if the player is hit by a laser.
 
 ## Examples of JUnit tests
