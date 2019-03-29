@@ -93,11 +93,13 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
 
     public void run() {
         gameBoard.disableDoor(8, 29);
+        GameTimer.StartTimer();
         while (!gameOver() && !gameWon()) {
             text.setText("");
             text = gameBoard.print(text);
             tCounter.setText("Number of treasures found: " + remainingTreasure() + "/" + totalNumberOfTreasureOnBoard);
             gameBoard.checkToOpenDoor(0);
+            GameTimer.GameOverMaxTime();
             try {
                 Thread.sleep(300);
             } catch (InterruptedException e) {
@@ -117,7 +119,7 @@ public class GameSession extends JFrame implements Runnable, KeyListener {
     }
 
     private boolean gameOver() {
-        this.gameOver = gameBoard.gameBoardGameOver;
+        this.gameOver = GameBoard.gameBoardGameOver;
         return gameOver;
     }
 
