@@ -15,5 +15,4 @@ public class Laser {
 		return false;
 	}
 
-	
 }
