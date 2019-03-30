@@ -24,8 +24,10 @@ The user interface presents a playing field created by a 2-dimensional Integer a
 * jTextAreaShowText() (test to verify that GUI working correct).
 * IsitTimecurenttime() (test to verfiy Time is actual time now ).
 * IsItTImerGiveRightPassedTime() (Test to verify timer is working proper and give actual time had been passed).
-*
+* IsMaxTimeRight() (Test for checking Gameover method base on Time (a minute)).
 
+## Problem and Solotion
+ * A Chalange was Testing Time.Time is dimension of the momnet,time NOW is not same as Time as a millisecond later.When we designed time test case,we had to think about delta in our cases. 
 ## Setup
 To have the JUnit tests running you need to add junit*.jar to your IDE Ex. junit-4.6.jar or if it is a Maven project add a dependencie to the pom.xml file.
 
