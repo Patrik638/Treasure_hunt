@@ -25,7 +25,7 @@ public class GameTimer {
         return start;
     }
 public static void GameOverMaxTime(){
-        if(CurentTimer()>=60000) {
+		if (CurentTimer() >= 60000) {
             gameBoardGameOver=true;
         }
 }

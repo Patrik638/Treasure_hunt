@@ -1,14 +1,13 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import Main.GameSession;
 import Main.GameTimer;
-import Main.Laser;
 
 public class Laser_test {
 
@@ -31,62 +30,156 @@ public class Laser_test {
 
 	}
 
-	@SuppressWarnings("static-access")
 	@Test
-	public void laserOneIsDisabled() {
-		GameTimer gameTimer = new GameTimer();
+	public void disableEnablelaserOne() throws InterruptedException {
+
 		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows(); row++) {
 			for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
-				if (gameTimer.CurentTimer() <= 6000 && row == 4)
 
+				if (row == 4)
 					for (col = 7; col < 12; col++) {
 
-						testGameSession.gameBoard.disableLaser(row, col);
+						if (GameTimer.CurentTimer() > 0 && GameTimer.CurentTimer() < 6000)
+							testGameSession.gameBoard.disableLaser(row, col);
 
-						assertEquals("Laser one is disabled", 1,
-								testGameSession.gameBoard.getValueOfPosition(row, col));
+						else if (GameTimer.CurentTimer() > 6000 && GameTimer.CurentTimer() < 12000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 12000 && GameTimer.CurentTimer() < 18000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 18000 && GameTimer.CurentTimer() < 24000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 24000 && GameTimer.CurentTimer() < 30000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 30000 && GameTimer.CurentTimer() < 36000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 36000 && GameTimer.CurentTimer() < 42000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 42000 && GameTimer.CurentTimer() < 48000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 48000 && GameTimer.CurentTimer() < 54000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 54000 && GameTimer.CurentTimer() < 60000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						assertTrue(5, testGameSession.gameBoard.getValueOfPosition(row, col));
 					}
-
 			}
+
 		}
 	}
 
 	@Test
-	public void laserTwoIsDisabled() {
-		GameTimer gameTimer = new GameTimer();
+	public void disableEnablelaserTwo() throws InterruptedException {
+
 		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows(); row++) {
 			for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
 
-				if (gameTimer.CurentTimer() <= 8000 && col == 15)
-
+				if (col == 15)
 					for (row = 2; row < 5; row++) {
 
-						testGameSession.gameBoard.disableLaser(row, col);
+						if (GameTimer.CurentTimer() > 0 && GameTimer.CurentTimer() < 6000)
+							testGameSession.gameBoard.disableLaser(row, col);
 
-						assertEquals("Laser Two is disabled", 1,
-								testGameSession.gameBoard.getValueOfPosition(row, col));
-
+						else if (GameTimer.CurentTimer() > 6000 && GameTimer.CurentTimer() < 12000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 12000 && GameTimer.CurentTimer() < 18000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 18000 && GameTimer.CurentTimer() < 24000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 24000 && GameTimer.CurentTimer() < 30000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 30000 && GameTimer.CurentTimer() < 36000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 36000 && GameTimer.CurentTimer() < 42000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 42000 && GameTimer.CurentTimer() < 48000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 48000 && GameTimer.CurentTimer() < 54000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 54000 && GameTimer.CurentTimer() < 60000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						assertTrue(5, testGameSession.gameBoard.getValueOfPosition(row, col));
 					}
 			}
+
 		}
 	}
 
-//	@SuppressWarnings("static-access")
-//	@Test
-//	public void laserOneIsEnabled() {
-//		GameTimer gameTimer = new GameTimer();
-//		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows(); row++) {
-//			for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
-//				while (row == 4)
-//					for (col = 7; col < 12; col++) {
-//						if (gameTimer.CurentTimer() >= 7000)
-//							testGameSession.gameBoard.enableLaser(row, col);
-//						assertEquals("Laser one is Enabled", 5,
-//								testGameSession.gameBoard.getValueOfPosition(row, col));
-//					}
-//
-//			}
-//		}
-//	}
+	@Test
+	public void disableEnablelaserThree() throws InterruptedException {
+
+		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows(); row++) {
+			for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
+
+				if (row == 11)
+					for (col = 14; col < 19; col++) {
+
+						if (GameTimer.CurentTimer() > 0 && GameTimer.CurentTimer() < 6000)
+							testGameSession.gameBoard.disableLaser(row, col);
+
+						else if (GameTimer.CurentTimer() > 6000 && GameTimer.CurentTimer() < 12000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 12000 && GameTimer.CurentTimer() < 18000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 18000 && GameTimer.CurentTimer() < 24000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 24000 && GameTimer.CurentTimer() < 30000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 30000 && GameTimer.CurentTimer() < 36000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 36000 && GameTimer.CurentTimer() < 42000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 42000 && GameTimer.CurentTimer() < 48000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 48000 && GameTimer.CurentTimer() < 54000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 54000 && GameTimer.CurentTimer() < 60000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						assertTrue(5, testGameSession.gameBoard.getValueOfPosition(row, col));
+					}
+			}
+
+		}
+	}
+
+	@Test
+	public void disableEnablelaserFour() throws InterruptedException {
+
+		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows(); row++) {
+			for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
+
+				if (col == 3)
+					for (row = 12; row < 14; row++) {
+
+						if (GameTimer.CurentTimer() > 0 && GameTimer.CurentTimer() < 6000)
+							testGameSession.gameBoard.disableLaser(row, col);
+
+						else if (GameTimer.CurentTimer() > 6000 && GameTimer.CurentTimer() < 12000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 12000 && GameTimer.CurentTimer() < 18000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 18000 && GameTimer.CurentTimer() < 24000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 24000 && GameTimer.CurentTimer() < 30000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 30000 && GameTimer.CurentTimer() < 36000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 36000 && GameTimer.CurentTimer() < 42000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 42000 && GameTimer.CurentTimer() < 48000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 48000 && GameTimer.CurentTimer() < 54000)
+							testGameSession.gameBoard.disableLaser(row, col);
+						else if (GameTimer.CurentTimer() > 54000 && GameTimer.CurentTimer() < 60000)
+							testGameSession.gameBoard.enableLaser(row, col);
+						assertTrue(5, testGameSession.gameBoard.getValueOfPosition(row, col));
+					}
+			}
+
+		}
+	}
+
+	private void assertTrue(int i, int valueOfPosition) {
+
+	}
 
 }

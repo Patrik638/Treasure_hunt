@@ -183,10 +183,12 @@ public class GameBoard {
 	}
 
 	public void disableLaser(int row, int col) {
-		setValueOfPosition(row, col, 1);
+		if(getValueOfPosition(row, col) == 5)
+		setValueOfPosition(row, col,0);
 	}
 	
 	public void enableLaser(int row, int col) {
+		if(getValueOfPosition(row, col) == 0)
 		setValueOfPosition(row, col, 5);
 	}
 
