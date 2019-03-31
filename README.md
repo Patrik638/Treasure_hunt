@@ -5,7 +5,7 @@ This application is a game that involves collecting treasures during an certain 
 * [Team members](#team-members)
 * [General info](#general-info)
 * [Examples of JUnit tests](#examples-of-JUnit-tests)
-* [Problem and Solotion](#problem-and-solution)
+* [Problem and Solution](#problem-and-solution)
 * [Setup](#setup)
 * [License](#license)
 * [TDD in practice](#tdd-in-practice)
@@ -28,7 +28,7 @@ The user interface presents a playing field created by a 2-dimensional Integer a
 * IsItTImerGiveRightPassedTime() (Test to verify timer is working proper and give actual time had been passed).
 * IsMaxTimeRight() (Test for checking Gameover method base on Time (a minute)).
 
-## Problem and Solotion
+## Problem and Solution
  * A Chalange was Testing Time.Time is dimension of the moment, time NOW is not same as Time as a millisecond later. When we designed time test case, we had to think about delta in our cases. 
  
 ## Setup
