@@ -5,8 +5,10 @@ This application is a game that involves collecting treasures during an certain 
 * [Team members](#team-members)
 * [General info](#general-info)
 * [Examples of JUnit tests](#examples-of-JUnit-tests)
+* [Problem and Solotion](#problem-and-solution)
 * [Setup](#setup)
 * [License](#license)
+* [TDD in practice](#tdd-in-practice)
 
 ## Team members
 * Nicklas Carlsson
