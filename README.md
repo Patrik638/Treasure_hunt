@@ -27,7 +27,7 @@ The user interface presents a playing field created by a 2-dimensional Integer a
 * IsMaxTimeRight() (Test for checking Gameover method base on Time (a minute)).
 
 ## Problem and Solotion
- * A Chalange was Testing Time.Time is dimension of the moment,time NOW is not same as Time as a millisecond later.When we designed time test case,we had to think about delta in our cases. 
+ * A Chalange was Testing Time.Time is dimension of the moment, time NOW is not same as Time as a millisecond later. When we designed time test case, we had to think about delta in our cases. 
  
 ## Setup
 To have the JUnit tests running you need to add junit*.jar to your IDE Ex. junit-4.6.jar or if it is a Maven project add a dependencie to the pom.xml file.
@@ -47,4 +47,4 @@ $	</dependencies>
 Licensed under the GNU General Public License v2.0
 
 ## TDD in practice 
-I learned to think outside a box when i am wrting a code.I learned much more from "failed test" than "passed test".
+I learned to think outside a box when i am wrting a code. I learned much more from "failed test" than "passed test".
