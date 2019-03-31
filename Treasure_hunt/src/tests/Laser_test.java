@@ -5,12 +5,12 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import Main.GameSession;
-import Main.Laser;
+import Main.GameTimer;
 
 public class Laser_test {
 
+	GameTimer gameTimer = new GameTimer();
 	GameSession testGameSession = new GameSession();
-	Laser laser = new Laser();
 
 	@Test
 	public void LasersExistsAtBoard() {
@@ -32,33 +32,33 @@ public class Laser_test {
 	@Test
 	public void disableEnablelaserOne() throws InterruptedException {
 
-		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows()-1; row++) {
-			//for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
+		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows() - 1; row++) {
+			// for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
 
-				if (row == 4) {
-					for (int col = 7; col < 12; col++) {
+			if (row == 4) {
+				for (int col = 7; col < 12; col++) {
 
-						laser.checkTime(row, col);
-						assertTrue(5, testGameSession.gameBoard.getValueOfPosition(row, col));
-					}
+					gameTimer.checkTime(row, col);
+					assertTrue(5, testGameSession.gameBoard.getValueOfPosition(row, col));
 				}
-			//}
+			}
+			// }
 
 		}
 	}
 
 	@Test
 	public void disableEnablelaserTwo() throws InterruptedException {
-		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows()-1; row++) {
+		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows() - 1; row++) {
 			for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
 
 				if (col == 15) {
-					//for (row = 2; row < 5; row++) {
+					// for (row = 2; row < 5; row++) {
 
-						laser.checkTime(row, col);
-						assertTrue(5, testGameSession.gameBoard.getValueOfPosition(row, col));
+					gameTimer.checkTime(row, col);
+					assertTrue(5, testGameSession.gameBoard.getValueOfPosition(row, col));
 				}
-					//}
+				// }
 			}
 
 		}
@@ -67,17 +67,17 @@ public class Laser_test {
 	@Test
 	public void disableEnablelaserThree() throws InterruptedException {
 
-		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows()-1; row++) {
-			//for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
+		for (int row = 0; row < testGameSession.gameBoard.getNumberOfRows() - 1; row++) {
+			// for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
 
-				if (row == 11) {
-					for (int col = 14; col < 19; col++) {
+			if (row == 11) {
+				for (int col = 14; col < 19; col++) {
 
-						laser.checkTime(row, col);
-						assertTrue(5, testGameSession.gameBoard.getValueOfPosition(row, col));
-					}
+					gameTimer.checkTime(row, col);
+					assertTrue(5, testGameSession.gameBoard.getValueOfPosition(row, col));
 				}
-			//}
+			}
+			// }
 
 		}
 	}
@@ -89,10 +89,10 @@ public class Laser_test {
 			for (int col = 0; col < testGameSession.gameBoard.getNumberOfCols(); col++) {
 
 				if (col == 3) {
-					//for (row = 12; row < 14; row++) {
-						laser.checkTime(row, col);
-						assertTrue(5, testGameSession.gameBoard.getValueOfPosition(row, col));
-					//}
+					// for (row = 12; row < 14; row++) {
+					gameTimer.checkTime(row, col);
+					assertTrue(5, testGameSession.gameBoard.getValueOfPosition(row, col));
+					// }
 				}
 			}
 
